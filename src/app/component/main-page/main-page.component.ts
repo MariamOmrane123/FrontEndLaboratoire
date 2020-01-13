@@ -50,7 +50,7 @@ export class MainPageComponent implements OnInit {
     let month=date.getMonth()+1;
     let year=date.getFullYear();
 
-    let startDate=this.dateConstructor(day,month,year,1,0,0);
+    let startDate=this.dateConstructor(day,month,year,-1,0,0);
     let endDate=this.dateConstructor(day,month,year,0,0,1);
 
     this.evenementService.findByDateEvtBetween(startDate, endDate).subscribe(
