@@ -15,6 +15,10 @@ export class PublicationService {
   findAll():Observable<Publication[]>{
     return this.http.get<Publication[]>(environment.baseUrl + '/publication/all');
   }
+  findByDateBetween(startDate:string,endDate:string):Observable<Publication[]>{
+    let url=environment.baseUrl + '/publication/search/findByDateBetween/'+startDate+"/"+endDate;
+    return this.http.get<Publication[]>(url);
+  }
 
   delete(publication:Publication){
     return this.http.delete(environment.baseUrl + "/publication/"+publication.id);
