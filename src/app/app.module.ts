@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 import { PublicationDetailsComponent } from './component/publication-details/publication-details.component';
 import { EventDetailsComponent } from './component/event-details/event-details.component';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
