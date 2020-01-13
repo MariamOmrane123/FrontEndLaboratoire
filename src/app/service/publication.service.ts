@@ -13,7 +13,7 @@ export class PublicationService {
 // Crud sur les Publications
 
   findAll():Observable<Publication[]>{
-    return this.http.get<Publication[]>(environment.baseUrl + '/pulication/all');
+    return this.http.get<Publication[]>(environment.baseUrl + '/publication/all');
   }
 
   delete(publication:Publication){
@@ -45,7 +45,7 @@ export class PublicationService {
   findByType(type:string){
     return this.http.get(environment.baseUrl + '/publication/type',{params:{type:type}});
   }
-//?????????
+
   findByDateApparitionBetween(d1:Date,d2:Date){
   }
 }

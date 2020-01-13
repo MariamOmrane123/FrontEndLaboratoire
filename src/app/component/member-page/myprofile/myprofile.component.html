@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <h4 class="heading">My Profile<span></span></h4>
+      <div class="wrapper">
+        <div class="testimonial">
+          <div class="author">
+            <img src="../../../../assets/flatten/img/dummies/testimonial-author1.png" class="img-circle bordered"
+                 alt="">
+            <p class="name">
+              {{member.nom + " " + member.prenom}}
+            </p>
+            <br>
+            <br>
+            <div>
+              <ul class="folio-detail">
+                <li><label>cin :</label> {{member.cin}}</li>
+                <li><label>Born :</label> {{member.dateNaissance}}</li>
+                <li><label>cv :</label> {{member.cv}}</li>
+                <li><label>email :</label><a href="#">{{member.email}}</a></li>
+                <div *ngIf="member.type=='etudiant'">
+                  <li><label>Sign Up Date :</label>{{member.dateInscription}}</li>
+                  <li><label>Topic :</label>{{member.sujet}}</li>
+                  <li><label>Diploma :</label>{{member.diplome}}</li>
+                  <li><label>Encadrant :</label>{{member.encadrant}}</li>
+                </div>
+                <div *ngIf="member.type!='etudiant'">
+                  <li><label>Grade :</label>{{member.etablissement}}</li>
+                  <li><label>School :</label>{{member.etablissement}}</li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

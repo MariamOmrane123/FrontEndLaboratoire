@@ -4,8 +4,9 @@
   <h2 class="login-header">Log in</h2>
 
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="login-container">
-    <p><input  formControlName="email" type="email" placeholder="Email"></p>
-    <p><input  formControlName="password" type="password" placeholder="Password"></p>
+    <p><input   formControlName="email" type="email" placeholder="Email"></p>
+    <p><input   formControlName="password" type="password" placeholder="Password"></p>
     <p><input type="submit" value="Log in"></p>
   </form>
+  <h5 *ngIf="ErrorLogin" class="login-header-error animated fadeInDown delay-1s" >Wrong User Or password</h5>
 </div>

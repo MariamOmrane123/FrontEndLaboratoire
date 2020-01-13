@@ -5,6 +5,8 @@ import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import { StorageService } from './storage.service';
+import {EnseignantChercheurReturn} from '../models/EnseignantChercheurReturn';
+import {EtudiantReturn} from '../models/EtudiantReturn';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +18,12 @@ export class LoginService {
   constructor(private http: HttpClient,private router: Router,private storageService:StorageService) {
   }
 
-  TryLogin(email: String, password: String): Observable<MembreReturn> {
+  TryLogin(email: String, password: String): Observable<EnseignantChercheurReturn|EtudiantReturn> {
     let httpParams = new HttpParams()
       .append('email', ''+email);
 
     let head = new HttpHeaders({ Authorization: 'Basic ' + btoa(email + ':' + password) });
-
-    console.log(head);
-    return this.http.get<MembreReturn>(environment.baseUrl + '/members/login', {
+    return this.http.get<EnseignantChercheurReturn|EtudiantReturn>(environment.baseUrl + '/members/login', {
       headers: head,
       params: httpParams
     });
@@ -41,18 +41,18 @@ export class LoginService {
         "email":email,
         "password":password
       });
-      this.router.navigate(['/user']);
+      this.router.navigate(['/user/profile']);
     }
     ,err=>{
-      console.log("Faild To Login")
+      //console.log("Faild To Login")
       }
     );
   }
   isLoggedin():boolean{
-    if(!this.storageService.isExist("userInfo")) return false;
-    return true;
+    if(this.storageService.isExist("userInfo")) return true;
+    return false;
   }
-  getUserInfo():MembreReturn{
+  getUserInfo():EnseignantChercheurReturn|EtudiantReturn{
     return this.storageService.read("userInfo");
   }
 }

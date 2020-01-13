@@ -8,7 +8,6 @@ export class EnseignantChercheurReturn extends MembreReturn {
 
   etablissement: string;
   grade: string;
-  encadre: Etudiant[];
 
 
 

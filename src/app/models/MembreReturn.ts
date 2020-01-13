@@ -24,11 +24,4 @@ export class MembreReturn {
   pubs: Publication[];
   outils: Outil[];
   type:String;
-  etablissement:string;
-  grade:string;
-  encadre:Etudiant[]; 
-  dateInscription:Date;
-  sujet:string;
-  diplome:string;
-  encadrant:EnseignantChercheur;
 }

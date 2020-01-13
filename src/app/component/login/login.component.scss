@@ -38,6 +38,11 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+.login-header-error,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 /* The triangle form is achieved by a CSS hack */
 .login-triangle {
@@ -56,6 +61,15 @@ body {
   text-align: center;
   text-transform: uppercase;
   color: #fff;
+}
+.login-header-error {
+  background: red;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color:  #fff;
 }
 
 .login-container {

@@ -1,10 +1,46 @@
-<div class="container">
-    <div class="row">        
-            <h1><strong>Profile</strong></h1>
-            <h3> <strong>public ID:</strong> <span>{{member.publicID}}</span></h3>
-            <h3> <strong>First Name:</strong> <span>{{member.nom}}</span></h3>
-            <h3> <strong>Last Name</strong> <span>{{member.prenom}}</span></h3>
-            <h3> <strong>Email:</strong> <span>{{member.email}}</span></h3>  
+<section id="inner-headline">
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="inner-heading">
+          <h2>User Page</h2>
+        </div>
+      </div>
+      <div class="span8">
+        <ul class="breadcrumb">
+          <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+          <li><a href="#">Pages</a><i class="icon-angle-right"></i></li>
+          <li class="active">User Page</li>
+        </ul>
+      </div>
     </div>
-</div>
-
+  </div>
+</section>
+<section id="content">
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <aside class="left-sidebar">
+          <div class="widget">
+            <form [formGroup]="" class="form-search">
+              <input placeholder="Type something" type="text" class="input-medium search-query">
+              <button type="submit" class="btn btn-square btn-theme">Search</button>
+            </form>
+          </div>
+          <div class="widget">
+            <h5 class="widgetheading">Menu</h5>
+            <ul class="cat">
+              <li><i class="icon-square icon-dashboard"></i><a [routerLink]="['./profile']">My Profile</a></li>
+              <li><i class="icon-square icon-cogs"></i><a [routerLink]="['./settings']">My Settings</a></li>
+              <li><i class="icon-square icon-book"></i><a [routerLink]="['./publications']">My publications</a></li>
+              <li><i class="icon-square icon-bullhorn"></i><a [routerLink]="['./events']">My Events</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <div class="span8">
+        <router-outlet ></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

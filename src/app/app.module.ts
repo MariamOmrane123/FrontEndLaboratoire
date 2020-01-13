@@ -21,7 +21,10 @@ import { SharedModule } from './shared/shared.module';
 import { PublicationDetailsComponent } from './component/publication-details/publication-details.component';
 import { EventDetailsComponent } from './component/event-details/event-details.component';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
-
+import { MysettingsComponent } from './component/member-page/mysettings/mysettings.component';
+import { MypublicationsComponent } from './component/member-page/mypublications/mypublications.component';
+import { MyprofileComponent } from './component/member-page/myprofile/myprofile.component';
+import { MyeventsComponent } from './component/member-page/myevents/myevents.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,11 @@ import { UserDetailsComponent } from './component/user-details/user-details.comp
     MemberPageComponent,
     PublicationDetailsComponent,
     EventDetailsComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    MysettingsComponent,
+    MypublicationsComponent,
+    MyeventsComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,

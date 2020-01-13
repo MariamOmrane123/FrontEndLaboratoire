@@ -9,13 +9,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  checkoutForm;
+  checkoutForm:any;
+  ErrorLogin=false;
 
   ngOnInit() {
   }
   constructor(private loginService:LoginService,private formBuilder: FormBuilder,private router: Router) {
     if(this.loginService.isLoggedin()){
-      this.router.navigate(['/user'])
+      this.router.navigate(['/user/profile'])
     }
     this.checkoutForm = this.formBuilder.group({
       email: new FormControl(''),
@@ -24,11 +25,13 @@ export class LoginComponent implements OnInit {
   }
 
 
+
   onSubmit(customerData) {
     // Process checkout data here
-    console.log(customerData.password.toString());
-    this.loginService.LogIn(customerData.email.toString(),customerData.password.toString())
 
+    this.loginService.LogIn(this.checkoutForm.get("email").value,this.checkoutForm.get("password").value)
+    if(!this.loginService.isLoggedin())
+      this.ErrorLogin=true;
   }
 
 }

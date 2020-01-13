@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../service/login.service';
 import {MembreReturn} from '../../models/MembreReturn';
 import {Router} from '@angular/router';
+import {EnseignantChercheurReturn} from '../../models/EnseignantChercheurReturn';
+import {EtudiantReturn} from '../../models/EtudiantReturn';
 
 @Component({
   selector: 'app-member-page',
@@ -9,13 +11,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./member-page.component.scss']
 })
 export class MemberPageComponent implements OnInit {
-  member:MembreReturn;
+  member:EnseignantChercheurReturn|EtudiantReturn;
   constructor(private loginService :LoginService,private router: Router) { }
 
   ngOnInit() {
     if(!this.loginService.isLoggedin())
       this.router.navigate(['/login'])
-    this.member=this.loginService.getUserInfo();
+
 
   }
 }

@@ -9,6 +9,7 @@ export class EtudiantReturn extends MembreReturn {
   dateInscription: Date;
   sujet: string;
   diplome: string;
+  type:string;
   encadrant: EnseignantChercheur;
 
 

@@ -17,7 +17,7 @@
   <div class="container ">
     <!-- hidden top area toggle link -->
     <div id="header-hidden-link">
-      <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
+      <a class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
     </div>
     <!-- end toggle link -->
     <div class="row nomargin">
@@ -25,7 +25,7 @@
         <div class="headnav">
           <ul>
             <li><a *ngIf="!loginService.isLoggedin()" routerLink="/login" data-toggle="modal"><i class="icon-user"></i> Sign in</a></li>
-            <li><a *ngIf="loginService.isLoggedin()" routerLink="/user" data-toggle="modal"><i class="icon-user"></i> {{loginService.getUserInfo().email}}</a></li>
+            <li><a *ngIf="loginService.isLoggedin()" routerLink="/user/profile" data-toggle="modal"><i class="icon-user"></i> {{loginService.getUserInfo().email}}</a></li>
             <li><a *ngIf="loginService.isLoggedin()" routerLink="/" (click)="loginService.LogOut()" data-toggle="modal"><i class="icon-user"></i> Log Out</a></li>
 
           </ul>

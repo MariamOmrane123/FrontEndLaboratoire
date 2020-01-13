@@ -10,6 +10,10 @@ import {AboutComponent} from './component/about/about.component';
 import {LoginComponent} from './component/login/login.component';
 import {MemberPageComponent} from './component/member-page/member-page.component';
 import {UserDetailsComponent} from './component/user-details/user-details.component';
+import {MysettingsComponent} from './component/member-page/mysettings/mysettings.component';
+import {MypublicationsComponent} from './component/member-page/mypublications/mypublications.component';
+import {MyeventsComponent} from './component/member-page/myevents/myevents.component';
+import {MyprofileComponent} from './component/member-page/myprofile/myprofile.component';
 
 
 const routes: Routes = [
@@ -22,7 +26,12 @@ const routes: Routes = [
   { path: 'members', component: MembersComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'user', component: MemberPageComponent },
+  { path: 'user', component: MemberPageComponent,children:[
+      {path:'settings',component:MysettingsComponent},
+      {path:'publications',component:MypublicationsComponent},
+      {path:'events',component:MyeventsComponent},
+      {path:'profile',component:MyprofileComponent},
+    ]},
   { path: 'members/:id', component: UserDetailsComponent },
   { path: '**', component: NotFoundComponent },
 ];
