@@ -32,6 +32,7 @@ export class LoginService {
     this.UserInfo=null;
     this.storageService.remove("userInfo");
     this.storageService.remove("customerData");
+    this.storageService.removeAll();
   }
   LogIn(email: String, password: String) {
     this.TryLogin(email, password).subscribe((data: MembreReturn) => {

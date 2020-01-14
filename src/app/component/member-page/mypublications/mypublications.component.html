@@ -1,1 +1,25 @@
-<p>mypublications works!</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date Apparition</th>
+        <th scope="col">Lien</th>
+        <th scope="col">Source PDF</th>
+        <th scope="col">Type</th>
+        <th scope="col">Editer/Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pub of member.pubs;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{pub.dateApparition}}</td>
+        <td>{{pub.lien}}</td>
+        <td>{{pub.sourcePdf}}</td>
+        <td>{{pub.type}}</td>
+        <td>
+            <button type="button" class="btn btn-secondary">editer</button>
+            <button type="button" class="btn btn-danger">supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
