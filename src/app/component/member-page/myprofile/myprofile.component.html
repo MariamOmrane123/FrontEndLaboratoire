@@ -39,21 +39,24 @@
                 <li><label>Born : </label><input type="date" [(ngModel)]="member.dateNaissance"></li>
                 <li><label>cv : </label><input type="text" [(ngModel)]="member.cv"></li>
                 <li><label>email : </label><input type="text" [(ngModel)]="member.email"></li>
-                <div *ngIf="member.type=='etudiant'">
+
+                <div *ngIf="userInfo.type=='etudiant'">
                   <li><label>Sign Up Date : </label><input type="date" [(ngModel)]="member.dateInscription"></li>
                   <li><label>Topic : </label><input type="text" [(ngModel)]="member.sujet"></li>
                   <li><label>Diploma : </label><input type="text" [(ngModel)]="member.diplome"></li>
                   <li><label>Encadrant : </label><input type="text" [(ngModel)]="member.encadrant"></li>
                 </div>
-                <div *ngIf="member.type!='etudiant'">
+                <div *ngIf="userInfo.type!='etudiant'">
                   <li><label>Grade : </label><input type="text" [(ngModel)]="member.grade"></li>
                   <li><label>School : </label><input type="text" [(ngModel)]="member.etablissement"></li>
                 </div>
+                <li><label>New Password : </label><input type="password" [(ngModel)]="new_pass"></li>
+                <li><label>re-type New Password : </label><input type="password" [(ngModel)]="re_pass"></li>
                 <div>
                   <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
                   <button type="button" class="btn btn-danger" (click)="submit()">submit</button>
                 </div>
-                
+
               </ul>
             </ng-template>
           </div>

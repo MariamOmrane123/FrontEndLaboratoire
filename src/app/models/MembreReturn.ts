@@ -23,5 +23,5 @@ export class MembreReturn {
   evts: Evenement[];
   pubs: Publication[];
   outils: Outil[];
-  type:String;
+  type:string;
 }
