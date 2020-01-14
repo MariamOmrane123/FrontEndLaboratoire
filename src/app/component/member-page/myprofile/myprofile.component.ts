@@ -19,7 +19,7 @@ import {Membre} from "../../../models/Membre";
 })
 export class MyprofileComponent implements OnInit {
   member: Etudiant | EnseignantChercheur;
-  userInfo:EtudiantReturn|EnseignantChercheurReturn;
+  userInfo: EtudiantReturn | EnseignantChercheurReturn;
   new_pass;
   re_pass;
   verifEdit: boolean = false;
@@ -36,6 +36,9 @@ export class MyprofileComponent implements OnInit {
     else this.member = new EnseignantChercheur();
     Object.keys(this.userInfo).forEach(key => this.member[key] = this.userInfo[key]);
   }
+  updateUserInfo(){
+    this.userInfo = this.loginService.getUserInfo();
+  }
 
   edit() {
     this.verifEdit = true;
@@ -43,15 +46,27 @@ export class MyprofileComponent implements OnInit {
 
   submit() {
     this.verifEdit = false;
-    this.member.password="not_set";
-    console.log(this.member);
+    console.log("this.new_pass")
+    console.log(this.new_pass)
+
+    if(this.new_pass!=null){
+      if(this.new_pass==this.re_pass)
+        this.member.password=this.new_pass;
+    }else{
+      this.member.password=null;
+    }
     if (this.userInfo.type == "etudiant")
-      this.etudiantService.update(<Etudiant>this.member).subscribe(data=>{
-        console.log(data);
-      })
+      this.etudiantService.update(<Etudiant>this.member).subscribe((data: EtudiantReturn) => {
+          this.loginService.setUserInfo(data);
+          this.updateUserInfo();
+        },
+        err => {
+          console.log("Error" + err);
+        });
     else
-      this.enseignatChercheurService.update(<EnseignantChercheur>this.member).subscribe(data => {
-          console.log(data)
+      this.enseignatChercheurService.update(<EnseignantChercheur>this.member).subscribe((data: EnseignantChercheurReturn) => {
+          this.loginService.setUserInfo(data);
+          this.updateUserInfo();
         },
         err => {
           console.log("Error" + err);

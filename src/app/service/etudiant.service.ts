@@ -4,6 +4,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {StorageService} from "./storage.service";
 import {LoginService} from "./login.service";
+import {Observable} from "rxjs";
+import {EtudiantReturn} from "../models/EtudiantReturn";
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +22,9 @@ export class EtudiantService {
   });
   }
 
-  update(etudiant:Etudiant){
+  update(etudiant:Etudiant):Observable<EtudiantReturn>{
     let header=this.loginservice.get_AuthHeader();
-    return this.http.put<Etudiant>(environment.baseUrl + "/members/etudiant/"+etudiant.publicID,etudiant,{
+    return this.http.put<EtudiantReturn>(environment.baseUrl + "/members/etudiant/"+etudiant.publicID,etudiant,{
       headers:header
   });
   }

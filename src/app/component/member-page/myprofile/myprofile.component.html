@@ -14,6 +14,7 @@
             <br>
             <div *ngIf="!verifEdit ; else elseBlock">
               <ul class="folio-detail">
+
                 <li><label>cin :</label> {{member.cin}}</li>
                 <li><label>Born :</label> {{member.dateNaissance}}</li>
                 <li><label>cv :</label> {{member.cv}}</li>
@@ -22,11 +23,9 @@
                   <li><label>Sign Up Date :</label>{{member.dateInscription}}</li>
                   <li><label>Topic :</label>{{member.sujet}}</li>
                   <li><label>Diploma :</label>{{member.diplome}}</li>
-                  <li><label>Encadrant :</label>{{member.encadrant}}</li>
                 </div>
                 <div *ngIf="member.type!='etudiant'">
-                  <li><label>Grade :</label>{{member.etablissement}}</li>
-                  <li><label>School :</label>{{member.etablissement}}</li>
+                  <li><label>Grade :</label>{{member.grade}}</li>
                 </div>
                 <div>
                   <li><button type="button" class="btn btn-warning" (click)="edit()">Edit</button></li>
@@ -35,6 +34,8 @@
             </div>
             <ng-template #elseBlock>
               <ul class="folio-detail">
+                <li><label>First Name : </label><input type="text" [(ngModel)]="member.nom"></li>
+                <li><label>Last Name : </label><input type="text" [(ngModel)]="member.prenom"></li>
                 <li><label>cin : </label><input type="text" [(ngModel)]="member.cin"></li>
                 <li><label>Born : </label><input type="date" [(ngModel)]="member.dateNaissance"></li>
                 <li><label>cv : </label><input type="text" [(ngModel)]="member.cv"></li>
@@ -44,11 +45,9 @@
                   <li><label>Sign Up Date : </label><input type="date" [(ngModel)]="member.dateInscription"></li>
                   <li><label>Topic : </label><input type="text" [(ngModel)]="member.sujet"></li>
                   <li><label>Diploma : </label><input type="text" [(ngModel)]="member.diplome"></li>
-                  <li><label>Encadrant : </label><input type="text" [(ngModel)]="member.encadrant"></li>
                 </div>
                 <div *ngIf="userInfo.type!='etudiant'">
                   <li><label>Grade : </label><input type="text" [(ngModel)]="member.grade"></li>
-                  <li><label>School : </label><input type="text" [(ngModel)]="member.etablissement"></li>
                 </div>
                 <li><label>New Password : </label><input type="password" [(ngModel)]="new_pass"></li>
                 <li><label>re-type New Password : </label><input type="password" [(ngModel)]="re_pass"></li>

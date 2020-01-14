@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { EnseignantChercheur } from '../models/EnseignantChercheur';
 import { environment } from 'src/environments/environment';
+import {EnseignantChercheurReturn} from "../models/EnseignantChercheurReturn";
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +20,7 @@ export class EnseignantChercheurService {
   }
 
   update(enseignant:EnseignantChercheur){
-    return this.http.put<EnseignantChercheur>(environment.baseUrl + "/members/enseignant/"+enseignant.publicID,enseignant,{
+    return this.http.put<EnseignantChercheurReturn>(environment.baseUrl + "/members/enseignant/"+enseignant.publicID,enseignant,{
       headers:new HttpHeaders({
           'content-type':'application/json'
       })

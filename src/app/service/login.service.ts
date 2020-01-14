@@ -64,6 +64,9 @@ export class LoginService {
   getUserInfo(): EnseignantChercheurReturn | EtudiantReturn {
     return this.storageService.read("userInfo");
   }
+  setUserInfo(m:MembreReturn){
+    this.storageService.write("userInfo", m);
+  }
 
   get_AuthHeader():HttpHeaders {
     return new HttpHeaders({Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
